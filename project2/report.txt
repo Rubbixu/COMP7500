@@ -1,0 +1,24 @@
+Project 2 Report            Liangliang Xu
+
+    In this project, a word counting tool C program needs to be designed and implemented, where two processes are cooperating through Unix Pipes. Ordinary pipes will be used that enable two processes to communicate in a producer-consumer fashion. Besides basic requirement, this project will also try to tackle optional requirements such as large input file, separate compilation, configuration and performance evaluation.
+
+    Overview
+    The source file contains 3 .c file and 1 make file. Both script files of make command and correct input/output of the main program are included as well, along with this report.
+
+    Basic requirement
+    Two processes will be responsible for input/output and word counting, respectively. Two pipes will be created between them, first of which sends file contents from I/O process to function process, and the second sends the result backwards. A error message will be prompted unless users input exactly 2 arguments in the command line, or the input file is inaccessible. The program will also exit upon any failures on fork or pipe creation. The principle behind word counting is to count the space/newline in the file. It will count out any consecutive spaces by scanning each character and its previous one.
+
+    Large input files
+    If input files are larger than buffer size, the contents will be passed through multiple transmission. Each time a content of buffer size - 1 will be transmitted as string (The last character of string is always end of line), and will keep doing so until the content reaches end of file. Since pipe has block feature, the process will not write to pipe until the previous content is read on the other end. No information will be lost. A modification is applied on word count function to remember the last content character of the previous transmission to keep the counting consistent throughout multiple transmission.
+
+    Separate compilation
+    A make file is included to enable separate compilation. Simply run "make" command and the files will be compiled.
+
+    Configuration
+    In this project, a simple configuration feature is added to customize buffer size. The program will prompt user to input a number. It should be an integer greater or equal to 4. The system will prompt user if the input is invalid. Then the program will run on this input. The configuration file will be combined with performance evaluation.
+
+    Performance Evaluation
+    After the I/O process prints out result on screen, "Performance Evaluation.txt" file will be appended with a simple record of this run. (The file will be created if not existed) The entries include file name, file size, buffer size, total count, and total run time. The function used for recording time is developed by Dr.Saad Biaz for COMP7300.
+
+    Conclusion & Possible Improvement
+    The programs have run on files up to 1M size and return correct results. However, some improvement can be done on configuration and performance evaluation. More configurations can be applied to the program and in a more elegant way. Performance can also be evaluated on different parts such as transmission and word count. More pipes are likely to be created, or using shared memory such as mmap().

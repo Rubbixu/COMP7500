@@ -1,0 +1,10 @@
+Script started on Tue 06 Feb 2018 07:08:08 PM CST
+bash-4.2$ make
+gcc -c pwordcount.c
+gcc -c wordcount.c
+gcc -c inputBuff.c
+gcc -o pwordcount pwordcount.o wordcount.o inputBuff.o
+bash-4.2$ exit
+exit
+
+Script done on Tue 06 Feb 2018 07:08:32 PM CST

@@ -1,0 +1,31 @@
+h:
+?:
+help:				show help menu
+-------------------------------------------------------------------------------------------
+r
+run <job> <time> <pri>: 	submit a job named <job>,
+				execution time is <time>,
+				priority is <pri>.
+-------------------------------------------------------------------------------------------
+ls
+list: 				display the job status.
+-------------------------------------------------------------------------------------------
+fcfs
+FCFS: 				change the scheduling policy to FCFS.
+-------------------------------------------------------------------------------------------
+sjf
+SJF: 				change the scheduling policy to SJF.
+-------------------------------------------------------------------------------------------
+prio
+priority: 			change the scheduling policy to priority.
+-------------------------------------------------------------------------------------------
+t
+test mybenchmark <policy>	mybenchmark is intergrated with AUbatch,
+	   <arrival_rate>	FCFS,SJF or priority for <policy>,
+	    <num_of_jobs>	low,medium or high for <arrival_rate>
+        <priority_levels>	test job number is <num_of_jobs>,
+	   <min_CPU_time>	max priority is <priority_levels>,
+ 	   <max_CPU_time>:	CPU time range is between <min_CPU_time> and <max_CPU_time>.
+-------------------------------------------------------------------------------------------
+q
+quit: 				exit AUbatch
